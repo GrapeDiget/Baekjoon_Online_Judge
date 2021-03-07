@@ -1,0 +1,4 @@
+import sys
+sys.stdin = open(
+    'contest/2021 신촌지역 대학생 프로그래밍 대회 동아리 연합 겨울 대회 (SUAPC 2021 Winter) Open/A번 - 우선순위 계산기/data/hepheir/3.in', 'r')
+input = sys.stdin.readline
