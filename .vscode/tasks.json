@@ -34,10 +34,12 @@
             "command": "g++",
             "args": [
                 "${file}",
+                "-g",
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
+                ".boj${pathSeparator}temp${pathSeparator}${fileBasenameNoExtension}"
             ],
             "group": "build",
+            "options": {"cwd": "${workspaceFolder}"},
 
             //컴파일시 에러를 편집기에 반영
             //참고:   https://code.visualstudio.com/docs/editor/tasks#_defining-a-problem-matcher
