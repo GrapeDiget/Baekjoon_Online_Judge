@@ -1,7 +1,6 @@
 import operator
 import sys
-sys.stdin = open(
-    'problems/20936 우선순위 계산기/data/hepheir/dummy.3553.in', 'r')
+import collections
 input = sys.stdin.readline
 
 
@@ -46,10 +45,10 @@ heap_size = 0
 def verdict(term_A, term_B):
     if term_A.result > term_B.result:
         return True
-    elif term_A.result == term_B.result:
+    if term_A.result == term_B.result:
         if OPERATOR_ORDER[term_A.oper] > OPERATOR_ORDER[term_B.oper]:
             return True
-        elif OPERATOR_ORDER[term_A.oper] == OPERATOR_ORDER[term_B.oper]:
+        if OPERATOR_ORDER[term_A.oper] == OPERATOR_ORDER[term_B.oper]:
             if term_A.idx < term_B.idx:
                 return True
     return False
@@ -166,11 +165,19 @@ if __name__ == '__main__':
         insert_heap(terms[t])
     terms[len(terms)-1].leftlink = terms[len(terms)-2]
     insert_heap(terms[len(terms)-1])
+    
+    heap = collections.deque(heap[1:heap_size+1])
+    
+    best = heap[0]
+    
+    
+
+
+
+
 
     # 힙에 1개만 남을 때 까지 추출
     while heap_size > 1:
-        if heap_size < 10:
-            print("", end="")
         delete_heap()
 
     print(heap[1].result)
